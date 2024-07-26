@@ -84,7 +84,8 @@ Resposta:
 Endpoint: /api/v1/users 
 Método: GET 
 Cabeçalho de Requisição: Authorization: Bearer 
-Resposta: ```
+Resposta: 
+```
 [ 
   { 
     "id": 1, 
@@ -95,7 +96,8 @@ Resposta: ```
     "name": "Nome Completo 2", 
     "email": "email2@example.com" 
   } 
-]```
+]
+```
 
 ## Buscar Usuário pelo ID 
 Endpoint: /api/v1/users/{id}
