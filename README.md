@@ -98,8 +98,8 @@ Body:
 Resposta: 
 ```
 {
-	"message": "Login realizado com sucesso.",
-	"access_token": "eyJ0eXAiOiJKV1QiL....."
+  "message": "Login realizado com sucesso.",
+  "access_token": "eyJ0eXAiOiJKV1QiL....."
 }
 ```
 
@@ -111,7 +111,7 @@ Resposta:
 ```
 'message' => 'Registros encontrados com sucesso.',
 'body'    => [
-{ 
+  { 
     "id": 1, 
     "name": "Nome Completo", 
     "email": "email@example.com" 
