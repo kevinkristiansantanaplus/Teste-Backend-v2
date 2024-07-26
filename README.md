@@ -10,7 +10,7 @@ Laravel 9.x
 Configuração:
 Faça o clone do Repositório 
 ```
-git clone https://seu-repositorio.git cd Teste-Situacional-BackEnd
+git clone https://github.com/kevinkristiansantanaplus/Teste-Backend-v2
 ```
 
 Instale as Dependências 
