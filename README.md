@@ -3,8 +3,11 @@ API Teste Back End Descrição Esta API foi desenvolvida com base no PHP 8.0, co
 ### Instruções de Uso 
 
 ## Requisitos 
+
 PHP 8.0 ou superior 
+
 Composer
+
 Laravel 9.x 
 
 Configuração:
