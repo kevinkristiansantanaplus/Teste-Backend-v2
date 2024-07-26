@@ -10,12 +10,12 @@ Laravel 9.x
 
 Configuração:
 
-Faça o clone do Repositório 
+Faça o clone do Repositório:
 ```
   git clone https://github.com/kevinkristiansantanaplus/Teste-Backend-v2
 ```
 
-Instale as Dependências 
+Instale as Dependências:
 ```
   composer install
 ```
@@ -33,7 +33,7 @@ Altere as informações necessárias:
   DB_CONNECTION=mysql
   DB_DATABASE=seudataabase
 ```
-Gere a Chave de Aplicação 
+Gere a Chave de Aplicação:
 ```
   php artisan key:generate
 ```
@@ -156,14 +156,14 @@ Crie o arquivo .env.test para configuração específica de teste:
 cp .env.example .env.test
 ```
 
-Altere as informações
+Altere as informações:
 ```
 APP_ENV=local 
 DB_CONNECTION=mysql
 DB_DATABASE=:memory:
 ```
 
-Execute as migrations
+Execute as migrations:
 ```
 php artisan migrate --env=testing
 ```
