@@ -43,14 +43,6 @@ Execute as Migrations
 ```
 
 # Configuração do JWT
-Instale o pacote jwt-auth:
-```
-  composer require tymon/jwt-auth
-```
-Publique a configuração do JWT:
-```
-  php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
-```
 Gere a chave secreta JWT:
 ```
   php artisan jwt:secret
@@ -117,8 +109,9 @@ Método: GET
 Cabeçalho de Requisição: Authorization: Bearer 
 Resposta: 
 ```
-[ 
-  { 
+'message' => 'Registros encontrados com sucesso.',
+'body'    => [
+{ 
     "id": 1, 
     "name": "Nome Completo", 
     "email": "email@example.com" 
