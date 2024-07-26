@@ -42,23 +42,26 @@ Execute as Migrations
   php artisan migrate
 ```
 
-# Configuração do JWT
 Gere a chave secreta JWT:
 ```
   php artisan jwt:secret
 ```
 
 # Uso da API
+## Registrar um Novo Usuário
+Endpoint: /api/v1/auth/register
 
-## Registrar um Novo Usuário 
-Endpoint: /api/v1/auth/register 
-Método: POST 
+
+Método: POST
+
+
 Body: 
 ```
 {
   "name": "Nome Completo",
   "email": "email@example.com",
   "password": "sua-senha"
+  "password_confirmation": "confirme-sua-senha"
 }
 ```
 Resposta:
@@ -69,8 +72,12 @@ Resposta:
 ```
 
 ## Autenticação 
-Endpoint: /api/v1/auth/login 
+Endpoint: /api/v1/auth/login
+
+
 Método: POST
+
+
 Body: 
 ```
 {
@@ -82,22 +89,26 @@ Resposta:
 ```
 {
   "message": "Login realizado com sucesso.",
-  "body": [
-            { 
-             "access_token": "eyJ0eXAiOiJKV1QiL....."
-            }, 
-          ]
+  "body": { 
+            "access_token": "eyJ0eXAiOiJKV1QiL....."
+          }
 }
 ```
 
 ## Listar Todos os Usuários 
-Endpoint: /api/v1/users 
-Método: GET 
-Cabeçalho de Requisição: Authorization: Bearer 
+Endpoint: /api/v1/users
+
+
+Método: GET
+
+
+Cabeçalho de Requisição: Authorization: Bearer
+
+
 Resposta: 
 ```
-'message' => 'Registros encontrados com sucesso.',
-'body'    => [
+"message" => "Registros encontrados com sucesso.",
+"body"    => [
   { 
     "id": 1, 
     "name": "Nome Completo", 
@@ -112,26 +123,33 @@ Resposta:
 
 ## Buscar Usuário pelo ID 
 Endpoint: /api/v1/users/{id}
-Método: GET 
-Parâmetros: id (obrigatório) 
-Cabeçalho de Requisição: Authorization: Bearer 
+
+
+Método: GET
+
+Parâmetros: id (obrigatório)
+
+
+Cabeçalho de Requisição: Authorization: Bearer
+
+
 Resposta: 
 ```
 {
-	"message": "Registro encontrado com sucesso.",
-	"body": {
-            "id": 1,
-            "name": "Nome Completo",
-            "email": "email@example.com"
-        		"created_at": "2024-07-26T19:40:38.000000Z",
-        		"updated_at": "2024-07-26T19:40:38.000000Z"
-	        }
+  "message": "Registro encontrado com sucesso.",
+  "body": {
+	     "id": 1,
+             "name": "Nome Completo",
+	     "email": "email@example.com",
+	     "created_at": "2024-07-26T19:40:38.000000Z",
+             "updated_at": "2024-07-26T19:40:38.000000Z"
+  }
 }
 ```
 
 # Testes
 
-# Configure o Ambiente de Teste
+## Configure o Ambiente de Teste
 
 Crie o arquivo .env.test para configuração específica de teste: 
 ```
