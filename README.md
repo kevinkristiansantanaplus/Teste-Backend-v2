@@ -1,8 +1,8 @@
 API Teste Back End Descrição Esta API foi desenvolvida com base no PHP 8.0, com o intuito de testar minhas habilidades com as stacks utilizadas.
 
-### Instruções de Uso 
+## Instruções de Uso 
 
-## Requisitos 
+# Requisitos 
 
 PHP 8.0 ou superior 
 
