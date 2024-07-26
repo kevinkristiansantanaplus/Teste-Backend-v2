@@ -1,7 +1,5 @@
 API Teste Back End Descrição Esta API foi desenvolvida com base no PHP 8.0, com o intuito de testar minhas habilidades com as stacks utilizadas.
 
-## Instruções de Uso 
-
 # Requisitos 
 
 PHP 8.0 ou superior 
@@ -11,42 +9,71 @@ Composer
 Laravel 9.x 
 
 Configuração:
+
 Faça o clone do Repositório 
 ```
-git clone https://github.com/kevinkristiansantanaplus/Teste-Backend-v2
+  git clone https://github.com/kevinkristiansantanaplus/Teste-Backend-v2
 ```
 
 Instale as Dependências 
 ```
-composer install
+  composer install
 ```
 
-Configure o Ambiente
+# Configure o Ambiente
 
 Copie o arquivo .env.example para .env e ajuste as variáveis conforme necessário. 
 ```
-cp .env.example .env
+  cp .env.example .env
 ```
-Configure o Ambiente de Teste
 
-Crie o arquivo .env.test para configuração específica de teste: 
-```
-cp .env.example .env.test
-```
 Altere as informações necessárias:
 ```
-APP_ENV=test 
-DB_CONNECTION=mysql
-DB_DATABASE=:memory:
+  APP_ENV=local 
+  DB_CONNECTION=mysql
+  DB_DATABASE=seudataabase
 ```
-Gere a Chave de Aplicação php artisan key:generate
-
+Gere a Chave de Aplicação 
+```
+  php artisan key:generate
+```
 Execute as Migrations
 ```
-php artisan migrate
+  php artisan migrate
 ```
 
-### Uso da API
+# Configuração do JWT
+Instale o pacote jwt-auth:
+```
+  composer require tymon/jwt-auth
+```
+Publique a configuração do JWT:
+```
+  php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+```
+Gere a chave secreta JWT:
+```
+  php artisan jwt:secret
+```
+Adicione o middleware JWT ao arquivo app/Http/Kernel.php.
+Adicionando as seguintes linhas ao array middlewareGroups:
+```
+  'api' => [
+      \App\Http\Middleware\EncryptCookies::class,
+      \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+      \Illuminate\Session\Middleware\StartSession::class,
+      \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+      \App\Http\Middleware\VerifyCsrfToken::class,
+      \Illuminate\Routing\Middleware\SubstituteBindings::class,
+      \Tymon\JWTAuth\Http\Middleware\Authenticate::class,
+  ],
+```
+Atualize o arquivo de configuração .env com as variáveis JWT:
+```
+JWT_SECRET=chave_gerada_pelo_comando_anterior
+```
+
+# Uso da API
 
 ## Registrar um Novo Usuário 
 Endpoint: /api/v1/auth/register 
@@ -116,7 +143,26 @@ Resposta:
 }
 ```
 
-## Testes
+# Testes
+
+# Configure o Ambiente de Teste
+
+Crie o arquivo .env.test para configuração específica de teste: 
+```
+cp .env.example .env.test
+```
+
+Altere as informações
+```
+APP_ENV=local 
+DB_CONNECTION=mysql
+DB_DATABASE=:memory:
+```
+
+Execute as migrations
+```
+php artisan migrate --env=testing
+```
 
 Para rodar os testes, use o comando:
 ```
