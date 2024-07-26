@@ -47,23 +47,6 @@ Gere a chave secreta JWT:
 ```
   php artisan jwt:secret
 ```
-Adicione o middleware JWT ao arquivo app/Http/Kernel.php.
-Adicionando as seguintes linhas ao array middlewareGroups:
-```
-  'api' => [
-      \App\Http\Middleware\EncryptCookies::class,
-      \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-      \Illuminate\Session\Middleware\StartSession::class,
-      \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-      \App\Http\Middleware\VerifyCsrfToken::class,
-      \Illuminate\Routing\Middleware\SubstituteBindings::class,
-      \Tymon\JWTAuth\Http\Middleware\Authenticate::class,
-  ],
-```
-Atualize o arquivo de configuração .env com as variáveis JWT:
-```
-JWT_SECRET=chave_gerada_pelo_comando_anterior
-```
 
 # Uso da API
 
