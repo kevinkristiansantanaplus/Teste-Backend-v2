@@ -35,7 +35,14 @@ class LoginTest extends TestCase
 
         // Verifica se o status é 200 e se vem com a mensagem e o Token JWT
         $response->assertStatus(200)
-                ->assertJsonStructure(['message', 'access_token']);
+                ->assertJsonStructure([
+                    'message', 
+                    'body' => [
+                        'access_token',
+                    ],
+                ]);
+
+        $this->assertIsString($response->json('body.access_token'));
 
     }
 

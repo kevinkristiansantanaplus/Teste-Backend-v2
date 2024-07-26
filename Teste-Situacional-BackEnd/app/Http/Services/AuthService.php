@@ -3,12 +3,9 @@
 namespace App\Http\Services;
 
 use App\Exceptions\CustomException;
-use App\Exceptions\UnauthorizedException;
 use App\Http\Repositories\Auth\AuthRepository;
 use App\Models\User;
-use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class AuthService
 {

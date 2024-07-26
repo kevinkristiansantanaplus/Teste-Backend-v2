@@ -34,7 +34,14 @@ class AuthController extends Controller
 
         if ($validator->fails()) {
 
-            return response()->json(['error' => $validator->errors()], 400);
+            return response()->json([
+
+                'message' => 'Preencha os campos corretamente.',
+                'body'    => [
+                                $validator->errors()
+                             ]
+
+            ], 400);
 
         }
 
@@ -76,7 +83,14 @@ class AuthController extends Controller
 
         if ($validator->fails()) {
 
-            return response()->json(['error' => $validator->errors()], 400);
+            return response()->json([
+
+                'message' => 'Preencha os campos corretamente.',
+                'body'    => [
+                                $validator->errors()
+                             ]
+
+            ], 400);
 
         }
 
@@ -90,8 +104,12 @@ class AuthController extends Controller
 
             return response()->json([
 
-                'message'      => 'Login realizado com sucesso.',
-                'access_token' => $token
+                'message' => 'Login realizado com sucesso.',
+                'body'    => [
+                             
+                                'access_token' => $token
+                             
+                             ]
 
             ], 200);
 

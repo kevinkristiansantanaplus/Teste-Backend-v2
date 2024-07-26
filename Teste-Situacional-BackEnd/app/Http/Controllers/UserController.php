@@ -30,7 +30,7 @@ class UserController extends Controller
 
             return response()->json([
 
-                'message' => 'Registro encontrado com sucesso.',
+                'message' => 'Registros encontrados com sucesso.',
                 'body'    => $user
 
             ], 200);            

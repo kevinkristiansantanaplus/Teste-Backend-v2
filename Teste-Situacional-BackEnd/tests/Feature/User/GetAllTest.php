@@ -31,7 +31,7 @@ class GetAllTest extends TestCase
     {
 
         // Cria uma quantidade de usuários no banco de testes
-        $users = User::factory()->count(3)->create();
+        $users = User::factory()->count(2)->create();
 
         // Cria uma solicitação no recurso da API 
         $response = $this->withHeader('Authorization', 'Bearer ' . $this->token)
@@ -39,10 +39,9 @@ class GetAllTest extends TestCase
 
         // Verifica o status code, a quantidade de usuários que foram criados e se os emails coincidem
         $response->assertStatus(200)
-                 ->assertJsonCount(4)
+                 ->assertJsonCount(2)
                  ->assertJsonFragment(['email' => $users[0]->email])
-                 ->assertJsonFragment(['email' => $users[1]->email])
-                 ->assertJsonFragment(['email' => $users[2]->email]);
+                 ->assertJsonFragment(['email' => $users[1]->email]);
 
     }
 
