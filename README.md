@@ -106,7 +106,8 @@ Body:
 Resposta: 
 ```
 {
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+	"message": "Login realizado com sucesso.",
+	"access_token": "eyJ0eXAiOiJKV1QiL....."
 }
 ```
 
