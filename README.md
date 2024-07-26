@@ -99,7 +99,11 @@ Resposta:
 ```
 {
   "message": "Login realizado com sucesso.",
-  "access_token": "eyJ0eXAiOiJKV1QiL....."
+  "body": [
+            { 
+             "access_token": "eyJ0eXAiOiJKV1QiL....."
+            }, 
+          ]
 }
 ```
 
@@ -131,9 +135,14 @@ Cabeçalho de Requisição: Authorization: Bearer
 Resposta: 
 ```
 {
-  "id": 1,
-  "name": "Nome Completo",
-  "email": "email@example.com"
+	"message": "Registro encontrado com sucesso.",
+	"body": {
+            "id": 1,
+            "name": "Nome Completo",
+            "email": "email@example.com"
+        		"created_at": "2024-07-26T19:40:38.000000Z",
+        		"updated_at": "2024-07-26T19:40:38.000000Z"
+	        }
 }
 ```
 
